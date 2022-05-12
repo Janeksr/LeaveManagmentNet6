@@ -6,6 +6,7 @@ using LeaveManagment.Common.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LeaveManagment.Web.Controllers
 {
@@ -33,6 +34,8 @@ namespace LeaveManagment.Web.Controllers
             var model = mapper.Map<List<EmployeeListVM>>(employees);
             return View(model);
         }
+
+        [Authorize(Roles = Roles.Administrator)]
 
         // GET: EmployeesController/ViewAllocations/employeeId
         public async Task<ActionResult> ViewAllocations(string id)
