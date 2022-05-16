@@ -42,8 +42,8 @@ namespace LeaveManagment.Application.Repositories
 
             var user = await userManager.FindByIdAsync(leaveRequest.RequestingEmployeeId);
 
-            await emailSender.SendEmailAsync(user.Email, $"Leave Request Cancelled", $"Your leave request from"
-                + $"{leaveRequest.StartDate} to {leaveRequest.EndDate} has been Cancelled.");
+            //await emailSender.SendEmailAsync(user.Email, $"Leave Request Cancelled", $"Your leave request from"
+            //    + $"{leaveRequest.StartDate} to {leaveRequest.EndDate} has been Cancelled.");
         }
 
         public async Task ChangeApprovalStatus(int leaveRequestId, bool approved)
@@ -65,8 +65,8 @@ namespace LeaveManagment.Application.Repositories
             var user = await userManager.FindByIdAsync(leaveRequest.RequestingEmployeeId);
             var approvalStatus = approved ? "Apprived" : "Decline";
 
-            await emailSender.SendEmailAsync(user.Email, $"Leave Request {approvalStatus}", $"Your leave request from"
-                + $"{leaveRequest.StartDate} to {leaveRequest.EndDate} has been {approvalStatus}.");
+            //await emailSender.SendEmailAsync(user.Email, $"Leave Request {approvalStatus}", $"Your leave request from"
+            //    + $"{leaveRequest.StartDate} to {leaveRequest.EndDate} has been {approvalStatus}.");
         }
 
         public async Task<bool> CreateLeaveRequest(LeaveRequestCreateVM model)
@@ -85,8 +85,8 @@ namespace LeaveManagment.Application.Repositories
             leaveRequest.RequestingEmployeeId = user.Id;
             await AddAsync(leaveRequest);
 
-            await emailSender.SendEmailAsync(user.Email, "Leave Request Submitted Successsfully", $"Your leave request from"
-                + $"{leaveRequest.StartDate} to {leaveRequest.EndDate} has been submitted for approval.");
+            //await emailSender.SendEmailAsync(user.Email, "Leave Request Submitted Successsfully", $"Your leave request from"
+            //    + $"{leaveRequest.StartDate} to {leaveRequest.EndDate} has been submitted for approval.");
 
             return true;
         }

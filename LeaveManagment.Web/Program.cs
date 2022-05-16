@@ -1,7 +1,6 @@
 using LeaveManagment.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using AutoMapper;
 using LeaveManagment.Application.Configurations;
 using LeaveManagment.Application.Contracts;
 using LeaveManagment.Application.Repositories;
